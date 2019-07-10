@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+    <div class="toolbar">
+      <div class="brand-title">elcity</div>
+      <div class="r-block">
+        <button class="tool-btn">
+            <ion-icon name="notifications-outline"></ion-icon>
+        </button>
+        <button (click)="goToSettings()" class="tool-btn">
+            <ion-icon name="cog"></ion-icon>
+        </button>
+      </div>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-tabs appSwipetab (ionTabsDidChange)="ionTabsDidChange($event)" (tabChange)="onTabChange($event)" #myTabs>
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button tab="chat">
+      <ion-icon name="chatboxes"></ion-icon>
+    </ion-tab-button>
+
+    <ion-tab-button tab="my-spots">
+      <ion-icon name="browsers"></ion-icon>
+    </ion-tab-button>
+
+    <ion-tab-button tab="spotter">
+      <ion-icon name="albums"></ion-icon>
+    </ion-tab-button>
+
+    <ion-tab-button tab="news">
+      <ion-icon name="star"></ion-icon>
+    </ion-tab-button>
+
+    <ion-tab-button tab="profile">
+      <ion-icon name="contact"></ion-icon>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>

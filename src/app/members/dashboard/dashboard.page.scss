@@ -1,0 +1,30 @@
+
+@import '../../app.scss';
+
+.brand-title{
+    color: $primary;
+    font-weight: 600;
+    font-size: 30px;
+    padding: 0 0 0 10px;
+}
+.tool-btn{
+    color: $primary;
+    font-size: 30px;
+    background-color: transparent;
+    max-height: 100%;
+    max-width: 100%;
+    padding-right: 10px;
+    padding-left: 0; 
+}
+.toolbar{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.swipe-area {
+    height:100%;
+    width:100%;
+}
+.r-block{
+   display: inline;
+}
