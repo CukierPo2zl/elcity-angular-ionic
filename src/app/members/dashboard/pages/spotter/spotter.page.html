@@ -1,9 +1,45 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>spotter</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content color="light">
+  <div class="geo-tools">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="10">
+          <ion-item>
+            <ion-label color="primary"><ion-icon name="pin"></ion-icon>location</ion-label>
+            <ionic-selectable 
+              [(ngModel)]="selected" 
+              [items]="data"
+              itemValueField="country"
+              itemTextField="country"
+              [canSearch]="true"
+              searchFailText="Nothing found :("
+              >
+              <ng-template ionicSelectableCloseButtonTemplate>
+                <ion-icon name="close" size="large"></ion-icon>
+              </ng-template>
 
-<ion-content>
-<p>spotter</p>
+              <ng-template ionicSelectableItemTemplate let-item="item">
+                  {{item.name}}, {{ item.country }}
+                </ng-template>
+
+            </ionic-selectable>
+          </ion-item>
+        </ion-col>
+        <ion-col size="2">
+          <ion-button fill="clear" class="current-location">
+            <ion-icon ios="md-locate" md="md-locate"></ion-icon>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+  <ion-card color="justwhite">
+    <ion-card-header>
+      <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+      Keep close to Nature's heart... and break clear away, once in awhile, and
+      climb a mountain or spend a week in the woods. Wash your spirit clean.
+    </ion-card-content>
+  </ion-card>
 </ion-content>

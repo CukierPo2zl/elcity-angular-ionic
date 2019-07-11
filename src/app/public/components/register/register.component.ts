@@ -12,7 +12,7 @@ import { LoginComponent } from '../login/login.component';
   styleUrls: ['./register.component.scss'],
 })
 export class RegisterComponent implements OnInit {
-  
+
   registerForm: FormGroup;
   submitted = false;
   loading = false;
@@ -47,7 +47,7 @@ export class RegisterComponent implements OnInit {
                 this.dismiss();
                 this.authenticationService.login(this.registerForm.controls.email.value, this.registerForm.controls.password.value)
                 .subscribe();
-                //this.loginModal();
+                // this.loginModal();
             },
             error => {
               this.loading = false;

@@ -11,17 +11,12 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { FormsModule } from '@angular/forms';
 import { IonicStorageModule, Storage } from '@ionic/storage';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { JwtModule, JWT_OPTIONS } from '@auth0/angular-jwt';
+import { JwtInterceptor } from './helpers/jwt.interceptor';
+import { ErrorInterceptor } from './helpers/error.interceptor';
 
-export function jwtOptionsFactory(storage){
-  return {
-    tokenGetter: () => {
-      return storage.get('currentUser');
-    },
-    whitelistedDomain: ['192.168.1.104:8000']
-  }
-}
+
 /**
  * Main module
  */
@@ -37,23 +32,17 @@ export function jwtOptionsFactory(storage){
     }),
     AppRoutingModule,
     IonicStorageModule.forRoot(),
-    JwtModule.forRoot({
-      jwtOptionsProvider: {
-        provide: JWT_OPTIONS,
-        useFactory: jwtOptionsFactory,
-        deps: [Storage]
-      }
-    }),
     FormsModule,
     HttpClientModule,
-    
-
   ],
   providers: [
+    
     StatusBar,
     SplashScreen,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }

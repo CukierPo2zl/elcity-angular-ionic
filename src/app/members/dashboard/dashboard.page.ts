@@ -31,12 +31,12 @@ export class DashboardPage implements OnInit {
 
 
   ionTabsDidChange($event) {
-    console.log('[DashboardPage] ionTabsDidChange, $event: ', $event.tab);
+    // console.log('[DashboardPage] ionTabsDidChange, $event: ', $event.tab);
     this.swipeTabDirective.onTabInitialized($event.tab);
   }
 
   onTabChange($event) {
-    console.log('[DashboardPage] onTabChange, $event: ', $event);
+    // console.log('[DashboardPage] onTabChange, $event: ', $event);
     this.tabRef.select($event);
   }
 

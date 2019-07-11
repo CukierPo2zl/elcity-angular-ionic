@@ -8,8 +8,8 @@ import { User, AuthResponse } from '../models';
 import { Platform, AlertController } from '@ionic/angular';
 import { JwtHelperService } from '@auth0/angular-jwt';
 
-const TOKEN_KEY = 'currentUser'; 
-
+const TOKEN_KEY = 'currentUser';
+const helper = new JwtHelperService();
 /**
  * Authentication service defines user registration, login, logout and also JWT  token validation.
  */
@@ -22,7 +22,7 @@ export class AuthService {
   /**
    * backend server address
    */
-  AUTH_SERVER_ADDRESS =  'http://192.168.1.104:8000';
+  AUTH_SERVER_ADDRESS =  'http://192.168.1.105:8000';
 
   /**
    * State represents user auth state
@@ -38,7 +38,6 @@ export class AuthService {
    */
   constructor(
     private httpClient: HttpClient,
-    private helper: JwtHelperService,
     private storage: Storage,
     private plt: Platform,
     private alertController: AlertController
@@ -76,8 +75,7 @@ export class AuthService {
             if (user && user.token) {
                 // store user details and jwt token in local storage to keep user logged in between page refreshes
                 this.storage.set(TOKEN_KEY, user.token);
-                this.user = this.helper.decodeToken(user.token);
-                console.log(user);
+                this.user = helper.decodeToken(user.token);
                 this.authenticationState.next(true);
             }
             return user;
@@ -116,8 +114,8 @@ export class AuthService {
   checkToken() {
     return this.storage.get(TOKEN_KEY).then(res => {
       if (res) {
-        let decoded = this.helper.decodeToken(res);
-        let isExpired = this.helper.isTokenExpired(res);
+        const decoded = helper.decodeToken(res);
+        const isExpired = helper.isTokenExpired(res);
 
         if (!isExpired) {
           this.user = decoded;
@@ -131,8 +129,8 @@ export class AuthService {
 /**
  * basic error alert
  */
-  showErrorAlert(msg){
-    let alert = this.alertController.create({
+  showErrorAlert(msg) {
+    const alert = this.alertController.create({
       message: msg,
       header: 'Error',
       buttons: ['OK']
