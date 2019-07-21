@@ -7,10 +7,13 @@
             <ion-label color="primary"><ion-icon name="pin"></ion-icon>location</ion-label>
             <ionic-selectable 
               [(ngModel)]="selected" 
-              [items]="data"
-              itemValueField="country"
-              itemTextField="country"
+              [items]="locations"
+              [hasVirtualScroll]="true"
+              itemValueField="name"
+              itemTextField="name"
               [canSearch]="true"
+              (onSearch)="searchLocations($event)"
+              [hasInfiniteScroll]="true"
               searchFailText="Nothing found :("
               >
               <ng-template ionicSelectableCloseButtonTemplate>
@@ -32,14 +35,12 @@
       </ion-row>
     </ion-grid>
   </div>
-  <ion-card color="justwhite">
+  <ion-card *ngFor="let spot of spots" color="justwhite">
     <ion-card-header>
-      <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+      <ion-card-subtitle>{{spot.anonymous}}</ion-card-subtitle>
     </ion-card-header>
-
     <ion-card-content>
-      Keep close to Nature's heart... and break clear away, once in awhile, and
-      climb a mountain or spend a week in the woods. Wash your spirit clean.
+     {{spot.content}}
     </ion-card-content>
   </ion-card>
 </ion-content>

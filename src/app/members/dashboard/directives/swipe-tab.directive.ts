@@ -30,7 +30,8 @@ export class SwipeTabDirective implements OnInit, OnDestroy {
 
   constructor(
       public _el: ElementRef,
-      private _renderer: Renderer2
+      private _renderer: Renderer2,
+      
   ) {
     //   console.log('[SwipeTabDirective] constructor');
   }
@@ -60,7 +61,7 @@ export class SwipeTabDirective implements OnInit, OnDestroy {
 
           if (content.querySelector('.swipe-area') === null) {
             //   console.log('[SwipeTabDirective] adding swipe area');
-              this.createWrapperDiv(content);
+            this.createWrapperDiv(content);
           }
       }
   }

@@ -4,6 +4,38 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-<p>my spots</p>
+<ion-content color="light">
+  <div>
+<!-- 
+      <form [formGroup]="spotForm" (ngSubmit)="onSubmit()">
+          <textarea placeholder="add spot" class="area" formControlName="content"></textarea>
+          <div class="heading bottom">
+            <div class="t-b">
+                <label class="checkcontainer">anonymous
+                    <input formControlName="anonymous" type="checkbox" checked="checked">
+                    <span class="checkmark"></span>
+                </label>
+                <label class="checkcontainer">allow comments
+                    <input type="checkbox" checked="checked">
+                    <span class="checkmark"></span>
+                </label>
+            </div>
+            <div class="b-b"><button class="btn-default add">send</button></div>
+          </div>
+        </form> -->
+
+  <ion-card *ngFor="let spot of spots" color="justwhite">
+    <ion-card-header>
+      <ion-card-subtitle>{{ spot.anonymous }}</ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+      {{ spot.content }}
+    </ion-card-content>
+  </ion-card>
+
+  <ion-infinite-scroll threshold="100px" (ionInfinite)="loadMore($event)" loadingSpinner="bubbles">
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</div> 
 </ion-content>
