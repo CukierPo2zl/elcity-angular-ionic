@@ -11,7 +11,7 @@ import { Spot } from '../models/spot';
 export class SpotService {
 
   constructor(private http: HttpClient, private auth: AuthService) { }
-  AUTH_SERVER_ADDRESS =  'http://192.168.1.104:8000';
+  AUTH_SERVER_ADDRESS =  'http://192.168.1.102:8000';
 
   getSpots() {
     return this.http.get(this.AUTH_SERVER_ADDRESS + '/api/spots/').pipe(

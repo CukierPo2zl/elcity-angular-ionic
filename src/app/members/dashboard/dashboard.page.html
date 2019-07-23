@@ -14,8 +14,9 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-tabs appSwipetab (ionTabsDidChange)="ionTabsDidChange($event)" (tabChange)="onTabChange($event)" #myTabs>
-  <ion-tab-bar slot="bottom">
+<!-- <ion-tabs appSwipetab (ionTabsDidChange)="ionTabsDidChange($event)" (tabChange)="onTabChange($event)" #myTabs> -->
+  <ion-tabs>
+    <ion-tab-bar slot="bottom">
     <ion-tab-button tab="chat">
       <ion-icon name="chatboxes"></ion-icon>
     </ion-tab-button>
