@@ -15,8 +15,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { JwtModule, JWT_OPTIONS } from '@auth0/angular-jwt';
 import { JwtInterceptor } from './helpers/jwt.interceptor';
 import { ErrorInterceptor } from './helpers/error.interceptor';
-
-
+import { Geolocation } from '@ionic-native/geolocation/ngx';
 /**
  * Main module
  */
@@ -28,7 +27,7 @@ import { ErrorInterceptor } from './helpers/error.interceptor';
     IonicModule.forRoot({
       // Basic Ionic config
       mode: 'ios',
-      swipeBackEnabled: true
+      //swipeBackEnabled: true
     }),
     AppRoutingModule,
     IonicStorageModule.forRoot(),
@@ -41,7 +40,10 @@ import { ErrorInterceptor } from './helpers/error.interceptor';
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
-   // { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+    Geolocation,
+   
+
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
   ],
   bootstrap: [AppComponent]
 })

@@ -22,7 +22,7 @@ export class AuthService {
   /**
    * backend server address
    */
-  AUTH_SERVER_ADDRESS =  'http://192.168.1.102:8000';
+  AUTH_SERVER_ADDRESS =  'http://192.168.1.103:8000';
 
   /**
    * State represents user auth state

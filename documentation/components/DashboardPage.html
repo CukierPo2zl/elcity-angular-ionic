@@ -68,7 +68,7 @@
         <h3>Description</h3>
     </p>
     <p class="comment">
-        <p>Page avaible only for authenticated users</p>
+        <p>Page contains main nav, tab bar and also controlls for swipe between tabs.</p>
 
     </p>
 
@@ -128,6 +128,27 @@
     <h3 id="index">Index</h3>
     <table class="table table-sm table-bordered index-table">
         <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#router">router</a>
+                            </li>
+                            <li>
+                                <a href="#swipeTabDirective">swipeTabDirective</a>
+                            </li>
+                            <li>
+                                <a href="#tabRef">tabRef</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
 
                 <tr>
                     <td class="col-md-4">
@@ -138,7 +159,16 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                <a href="#goToSettings">goToSettings</a>
+                            </li>
+                            <li>
+                                <a href="#ionTabsDidChange">ionTabsDidChange</a>
+                            </li>
+                            <li>
                                 <a href="#ngOnInit">ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#onTabChange">onTabChange</a>
                             </li>
                         </ul>
                     </td>
@@ -158,15 +188,57 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor()</code>
+<code>constructor(modalController: ModalController, router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/members/dashboard/dashboard.page.ts:12</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/members/dashboard/dashboard.page.ts:16</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>modalController</td>
+                                                  
+                                                        <td>
+                                                                    <code>ModalController</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/router/Router" target="_blank" >Router</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
             </tbody>
         </table>
 </section>
@@ -180,6 +252,113 @@
     <h3 id="methods">
         Methods
     </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="goToSettings"></a>
+                    <span class="name">
+                        <b>
+                            goToSettings
+                        </b>
+                        <a href="#goToSettings"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>goToSettings()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="28"
+                            class="link-to-prism">src/app/members/dashboard/dashboard.page.ts:28</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Navigation to settings</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ionTabsDidChange"></a>
+                    <span class="name">
+                        <b>
+                            ionTabsDidChange
+                        </b>
+                        <a href="#ionTabsDidChange"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ionTabsDidChange($event)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="33"
+                            class="link-to-prism">src/app/members/dashboard/dashboard.page.ts:33</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>$event</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
     <table class="table table-sm table-bordered">
         <tbody>
             <tr>
@@ -202,8 +381,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="16"
-                            class="link-to-prism">src/app/members/dashboard/dashboard.page.ts:16</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="23"
+                            class="link-to-prism">src/app/members/dashboard/dashboard.page.ts:23</a></div>
                 </td>
             </tr>
 
@@ -219,17 +398,191 @@
             </tr>
         </tbody>
     </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onTabChange"></a>
+                    <span class="name">
+                        <b>
+                            onTabChange
+                        </b>
+                        <a href="#onTabChange"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onTabChange($event)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="38"
+                            class="link-to-prism">src/app/members/dashboard/dashboard.page.ts:38</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>$event</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="router"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            router</b>
+                            <a href="#router"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://angular.io/api/router/Router" target="_blank" >Router</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/members/dashboard/dashboard.page.ts:20</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="swipeTabDirective"></a>
+                        <span class="name">
+                            <b>
+                            swipeTabDirective</b>
+                            <a href="#swipeTabDirective"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>SwipeTabDirective</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <b>Decorators : </b>
+                            <br />
+                            <code>
+                                @ViewChild(SwipeTabDirective)<br />
+                            </code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/members/dashboard/dashboard.page.ts:15</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="tabRef"></a>
+                        <span class="name">
+                            <b>
+                            tabRef</b>
+                            <a href="#tabRef"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>IonTabs</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <b>Decorators : </b>
+                            <br />
+                            <code>
+                                @ViewChild(&#x27;myTabs&#x27;)<br />
+                            </code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/members/dashboard/dashboard.page.ts:16</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
 </section>
 
 </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
-
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit, ViewChild } from &#x27;@angular/core&#x27;;
+import { ModalController, IonTabs } from &#x27;@ionic/angular&#x27;;
+import { Router } from &#x27;@angular/router&#x27;;
+import { SwipeTabDirective } from &#x27;./directives/swipe-tab.directive&#x27;;
 
 /**
- * Page avaible only for authenticated users
+ * Page contains main nav, tab bar and also controlls for swipe between tabs.
  */
 @Component({
   selector: &#x27;app-dashboard&#x27;,
@@ -237,10 +590,32 @@
   styleUrls: [&#x27;./dashboard.page.scss&#x27;],
 })
 export class DashboardPage implements OnInit {
+  @ViewChild(SwipeTabDirective) swipeTabDirective: SwipeTabDirective;
+  @ViewChild(&#x27;myTabs&#x27;) tabRef: IonTabs;
 
-  constructor() { }
+  constructor(
+    private modalController: ModalController,
+    public router: Router
+    ) { }
 
   ngOnInit() {
+  }
+  /**
+   * Navigation to settings
+   */
+  goToSettings() {
+    this.router.navigateByUrl(&#x27;@app/settings&#x27;);
+  }
+
+
+  ionTabsDidChange($event) {
+    // console.log(&#x27;[DashboardPage] ionTabsDidChange, $event: &#x27;, $event.tab);
+    this.swipeTabDirective.onTabInitialized($event.tab);
+  }
+
+  onTabChange($event) {
+    // console.log(&#x27;[DashboardPage] onTabChange, $event: &#x27;, $event);
+    this.tabRef.select($event);
   }
 
 }
@@ -250,22 +625,44 @@ export class DashboardPage implements OnInit {
     <div class="tab-pane fade " id="c-templateData">
         <pre class="line-numbers"><code class="language-html">&lt;ion-header&gt;
   &lt;ion-toolbar&gt;
-    &lt;ion-title color&#x3D;&quot;primary&quot;&gt;elcity&lt;/ion-title&gt;
-    
+    &lt;div class&#x3D;&quot;toolbar&quot;&gt;
+      &lt;div class&#x3D;&quot;brand-title&quot;&gt;elcity&lt;/div&gt;
+      &lt;div class&#x3D;&quot;r-block&quot;&gt;
+        &lt;button class&#x3D;&quot;tool-btn&quot;&gt;
+            &lt;ion-icon name&#x3D;&quot;notifications-outline&quot;&gt;&lt;/ion-icon&gt;
+        &lt;/button&gt;
+        &lt;button (click)&#x3D;&quot;goToSettings()&quot; class&#x3D;&quot;tool-btn&quot;&gt;
+            &lt;ion-icon name&#x3D;&quot;cog&quot;&gt;&lt;/ion-icon&gt;
+        &lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
   &lt;/ion-toolbar&gt;
 &lt;/ion-header&gt;
 
-&lt;ion-content&gt;
-  
- 
-&lt;/ion-content&gt;
+&lt;!-- &lt;ion-tabs appSwipetab (ionTabsDidChange)&#x3D;&quot;ionTabsDidChange($event)&quot; (tabChange)&#x3D;&quot;onTabChange($event)&quot; #myTabs&gt; --&gt;
+  &lt;ion-tabs&gt;
+    &lt;ion-tab-bar slot&#x3D;&quot;bottom&quot;&gt;
+    &lt;ion-tab-button tab&#x3D;&quot;chat&quot;&gt;
+      &lt;ion-icon name&#x3D;&quot;chatboxes&quot;&gt;&lt;/ion-icon&gt;
+    &lt;/ion-tab-button&gt;
 
-&lt;ion-footer&gt;
-  &lt;ion-toolbar&gt;
-    &lt;ion-title&gt;Footer&lt;/ion-title&gt;
-  &lt;/ion-toolbar&gt;
-&lt;/ion-footer&gt;
+    &lt;ion-tab-button tab&#x3D;&quot;my-spots&quot;&gt;
+      &lt;ion-icon name&#x3D;&quot;browsers&quot;&gt;&lt;/ion-icon&gt;
+    &lt;/ion-tab-button&gt;
 
+    &lt;ion-tab-button tab&#x3D;&quot;spotter&quot;&gt;
+      &lt;ion-icon name&#x3D;&quot;albums&quot;&gt;&lt;/ion-icon&gt;
+    &lt;/ion-tab-button&gt;
+
+    &lt;ion-tab-button tab&#x3D;&quot;news&quot;&gt;
+      &lt;ion-icon name&#x3D;&quot;star&quot;&gt;&lt;/ion-icon&gt;
+    &lt;/ion-tab-button&gt;
+
+    &lt;ion-tab-button tab&#x3D;&quot;profile&quot;&gt;
+      &lt;ion-icon name&#x3D;&quot;contact&quot;&gt;&lt;/ion-icon&gt;
+    &lt;/ion-tab-button&gt;
+  &lt;/ion-tab-bar&gt;
+&lt;/ion-tabs&gt;
 </code></pre>
     </div>
 
@@ -273,7 +670,37 @@ export class DashboardPage implements OnInit {
                 <p class="comment">
                     <code>./dashboard.page.scss</code>
                 </p>
-                <pre class="line-numbers"><code class="language-scss"></code></pre>
+                <pre class="line-numbers"><code class="language-scss">
+@import &#x27;../../app.scss&#x27;;
+
+.brand-title{
+    color: $primary;
+    font-weight: 600;
+    font-size: 30px;
+    padding: 0 0 0 10px;
+}
+.tool-btn{
+    color: $primary;
+    font-size: 30px;
+    background-color: transparent;
+    max-height: 100%;
+    max-width: 100%;
+    padding-right: 10px;
+    padding-left: 0; 
+}
+.toolbar{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.swipe-area {
+    height:100%;
+    width:100%;
+}
+.r-block{
+   display: inline;
+}
+</code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-tree">
@@ -301,9 +728,9 @@ export class DashboardPage implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><ion-header>  <ion-toolbar>    <ion-title color="primary">elcity</ion-title>      </ion-toolbar></ion-header><ion-content>   </ion-content><ion-footer>  <ion-toolbar>    <ion-title>Footer</ion-title>  </ion-toolbar></ion-footer></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'DashboardPage', 'selector': 'app-dashboard'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'PublicPage', 'selector': 'app-public'},{'name': 'RegisterComponent', 'selector': 'app-register'}];
-    var DIRECTIVES = [];
+        var COMPONENT_TEMPLATE = '<div><ion-header>  <ion-toolbar>    <div class="toolbar">      <div class="brand-title">elcity</div>      <div class="r-block">        <button class="tool-btn">            <ion-icon name="notifications-outline"></ion-icon>        </button>        <button (click)="goToSettings()" class="tool-btn">            <ion-icon name="cog"></ion-icon>        </button>      </div>    </div>  </ion-toolbar></ion-header><!-- <ion-tabs appSwipetab (ionTabsDidChange)="ionTabsDidChange($event)" (tabChange)="onTabChange($event)" #myTabs> -->  <ion-tabs>    <ion-tab-bar slot="bottom">    <ion-tab-button tab="chat">      <ion-icon name="chatboxes"></ion-icon>    </ion-tab-button>    <ion-tab-button tab="my-spots">      <ion-icon name="browsers"></ion-icon>    </ion-tab-button>    <ion-tab-button tab="spotter">      <ion-icon name="albums"></ion-icon>    </ion-tab-button>    <ion-tab-button tab="news">      <ion-icon name="star"></ion-icon>    </ion-tab-button>    <ion-tab-button tab="profile">      <ion-icon name="contact"></ion-icon>    </ion-tab-button>  </ion-tab-bar></ion-tabs></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'ChatPage', 'selector': 'app-chat'},{'name': 'DashboardPage', 'selector': 'app-dashboard'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MySpotsPage', 'selector': 'app-my-spots'},{'name': 'NewsPage', 'selector': 'app-news'},{'name': 'ProfilePage', 'selector': 'app-profile'},{'name': 'PublicPage', 'selector': 'app-public'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'SettingsPage', 'selector': 'app-settings'},{'name': 'SpotterPage', 'selector': 'app-spotter'}];
+    var DIRECTIVES = [{'name': 'SwipeTabDirective', 'selector': '[appSwipetab]'}];
     var ACTUAL_COMPONENT = {'name': 'DashboardPage'};
 </script>
 <script src="../js/tree.js"></script>

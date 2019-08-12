@@ -22,20 +22,20 @@
 <text text-anchor="start" x="429.7258" y="-15.4" font-family="sans-serif" font-size="14.00" fill="#000000"> &#160;Exports</text>
 <g id="clust1" class="cluster">
 <title>cluster_DashboardPageModule</title>
-<polygon fill="none" stroke="#000000" stroke-dasharray="1,5" points="166,-70 166,-195 330,-195 330,-70 166,-70"/>
+<polygon fill="none" stroke="#000000" stroke-dasharray="1,5" points="109,-70 109,-195 387,-195 387,-70 109,-70"/>
 </g>
 <g id="clust2" class="cluster">
 <title>cluster_DashboardPageModule_declarations</title>
-<polygon fill="none" stroke="#000000" points="188,-78 188,-130 308,-130 308,-78 188,-78"/>
+<polygon fill="none" stroke="#000000" points="117,-78 117,-130 379,-130 379,-78 117,-78"/>
 </g>
 <!-- DashboardPage -->
 <g id="node1" class="node">
 <title>DashboardPage</title>
-<polygon fill="#ffffb3" stroke="#000000" points="299.8529,-122 196.1471,-122 196.1471,-86 299.8529,-86 299.8529,-122"/>
-<text text-anchor="middle" x="248" y="-99.8" font-family="Times,serif" font-size="14.00" fill="#000000">DashboardPage</text>
+<polygon fill="#ffffb3" stroke="#000000" points="370.8529,-122 267.1471,-122 267.1471,-86 370.8529,-86 370.8529,-122"/>
+<text text-anchor="middle" x="319" y="-99.8" font-family="Times,serif" font-size="14.00" fill="#000000">DashboardPage</text>
 </g>
 <!-- DashboardPageModule -->
-<g id="node2" class="node">
+<g id="node3" class="node">
 <title>DashboardPageModule</title>
 <polygon fill="#8dd3c7" stroke="#000000" points="321.9032,-187 318.9032,-191 297.9032,-191 294.9032,-187 174.0968,-187 174.0968,-151 321.9032,-151 321.9032,-187"/>
 <text text-anchor="middle" x="248" y="-164.8" font-family="Times,serif" font-size="14.00" fill="#000000">DashboardPageModule</text>
@@ -43,8 +43,20 @@
 <!-- DashboardPage&#45;&gt;DashboardPageModule -->
 <g id="edge1" class="edge">
 <title>DashboardPage&#45;&gt;DashboardPageModule</title>
-<path fill="none" stroke="#000000" d="M248,-122.1061C248,-122.1061 248,-140.991 248,-140.991"/>
-<polygon fill="#000000" stroke="#000000" points="244.5001,-140.9909 248,-150.991 251.5001,-140.991 244.5001,-140.9909"/>
+<path fill="none" stroke="#000000" d="M294.3875,-122.1061C294.3875,-122.1061 294.3875,-140.991 294.3875,-140.991"/>
+<polygon fill="#000000" stroke="#000000" points="290.8875,-140.9909 294.3875,-150.991 297.8875,-140.991 290.8875,-140.9909"/>
+</g>
+<!-- SwipeTabDirective -->
+<g id="node2" class="node">
+<title>SwipeTabDirective</title>
+<polygon fill="#ffffb3" stroke="#000000" points="249.3445,-122 124.6555,-122 124.6555,-86 249.3445,-86 249.3445,-122"/>
+<text text-anchor="middle" x="187" y="-99.8" font-family="Times,serif" font-size="14.00" fill="#000000">SwipeTabDirective</text>
+</g>
+<!-- SwipeTabDirective&#45;&gt;DashboardPageModule -->
+<g id="edge2" class="edge">
+<title>SwipeTabDirective&#45;&gt;DashboardPageModule</title>
+<path fill="none" stroke="#000000" d="M211.8605,-122.1061C211.8605,-122.1061 211.8605,-140.991 211.8605,-140.991"/>
+<polygon fill="#000000" stroke="#000000" points="208.3605,-140.9909 211.8605,-150.991 215.3605,-140.991 208.3605,-140.9909"/>
 </g>
 </g>
 </svg>

@@ -72,13 +72,14 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { NgModule } from &#x27;@angular/core&#x27;;
 import { PreloadAllModules, RouterModule, Routes } from &#x27;@angular/router&#x27;;
-
-const routes: Routes &#x3D; [
-  { path: &#x27;dashboard&#x27;, loadChildren: &#x27;./dashboard/dashboard.module#DashboardPageModule&#x27; },
-];
 /**
  * Routing module marks paths for successfully authenticated users.
  */
+const routes: Routes &#x3D; [
+  { path: &#x27;dashboard&#x27;, loadChildren: &#x27;./dashboard/dashboard.module#DashboardPageModule&#x27; },
+  { path: &#x27;settings&#x27;, loadChildren: &#x27;./dashboard/pages/settings/settings.module#SettingsPageModule&#x27; },
+];
+
 @NgModule({
   imports: [
     RouterModule.forChild(routes)

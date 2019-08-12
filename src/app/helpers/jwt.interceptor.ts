@@ -43,7 +43,7 @@ export class JwtInterceptor implements HttpInterceptor {
             let clone: HttpRequest<any>;
             clone = request.clone({
                 setHeaders: {
-                  // Accept: `application/json`,
+                    Accept: `application/json`,
                     'Content-Type': `application/json`,
                     Authorization: `JWT ${token}`,
                 }

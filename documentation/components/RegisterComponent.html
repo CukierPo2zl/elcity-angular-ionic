@@ -307,8 +307,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="61"
-                            class="link-to-prism">src/app/public/components/register/register.component.ts:61</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="63"
+                            class="link-to-prism">src/app/public/components/register/register.component.ts:63</a></div>
                 </td>
             </tr>
 
@@ -348,8 +348,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="55"
-                            class="link-to-prism">src/app/public/components/register/register.component.ts:55</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="57"
+                            class="link-to-prism">src/app/public/components/register/register.component.ts:57</a></div>
                 </td>
             </tr>
 
@@ -576,7 +576,7 @@ import { LoginComponent } from &#x27;../login/login.component&#x27;;
   styleUrls: [&#x27;./register.component.scss&#x27;],
 })
 export class RegisterComponent implements OnInit {
-  
+
   registerForm: FormGroup;
   submitted &#x3D; false;
   loading &#x3D; false;
@@ -609,13 +609,15 @@ export class RegisterComponent implements OnInit {
         .subscribe(
             data &#x3D;&gt; {
                 this.dismiss();
-               this.loginModal();
+                this.authenticationService.login(this.registerForm.controls.email.value, this.registerForm.controls.password.value)
+                .subscribe();
+                // this.loginModal();
             },
             error &#x3D;&gt; {
               this.loading &#x3D; false;
             });
 }
-//do zmiany
+
 async loginModal() {
   const modal &#x3D; await this.modalController.create({
     component: LoginComponent
@@ -633,42 +635,40 @@ async loginModal() {
 
     <div class="tab-pane fade " id="c-templateData">
         <pre class="line-numbers"><code class="language-html">&lt;ion-header translucent&gt;
-    &lt;ion-toolbar&gt;
-      &lt;ion-title&gt;sign up&lt;/ion-title&gt;
-      &lt;ion-buttons slot&#x3D;&quot;end&quot;&gt;
-        &lt;ion-button (click)&#x3D;&quot;dismiss()&quot;&gt;Close&lt;/ion-button&gt;
-      &lt;/ion-buttons&gt;
-    &lt;/ion-toolbar&gt;
-  &lt;/ion-header&gt;
+  &lt;ion-toolbar&gt;
+    &lt;ion-title&gt;sign up&lt;/ion-title&gt;
+    &lt;ion-buttons slot&#x3D;&quot;end&quot;&gt;
+      &lt;ion-button (click)&#x3D;&quot;dismiss()&quot;&gt;&lt;ion-icon size&#x3D;&quot;large&quot; name&#x3D;&quot;close&quot;&gt;&lt;/ion-icon&gt;&lt;/ion-button&gt;
+    &lt;/ion-buttons&gt;
+  &lt;/ion-toolbar&gt;
+&lt;/ion-header&gt;
 
-  &lt;ion-content&gt;
-   &lt;form [formGroup]&#x3D;&quot;registerForm&quot; (ngSubmit)&#x3D;&quot;onSubmit()&quot;&gt;
+&lt;ion-content&gt;
+  &lt;form [formGroup]&#x3D;&quot;registerForm&quot; (ngSubmit)&#x3D;&quot;onSubmit()&quot;&gt;
+    &lt;ion-item&gt;
+      &lt;ion-label position&#x3D;&quot;floating&quot;&gt;email&lt;/ion-label&gt;
+      &lt;ion-input formControlName&#x3D;&quot;email&quot; type&#x3D;&quot;text&quot;&gt;&lt;/ion-input&gt;
+    &lt;/ion-item&gt;
 
-      &lt;ion-item&gt;
-          &lt;ion-label position&#x3D;&quot;floating&quot;&gt;email&lt;/ion-label&gt;
-          &lt;ion-input formControlName&#x3D;&quot;email&quot; type&#x3D;&quot;text&quot;&gt;&lt;/ion-input&gt;
-      &lt;/ion-item&gt;
+    &lt;ion-item&gt;
+      &lt;ion-label position&#x3D;&quot;floating&quot;&gt;username&lt;/ion-label&gt;
+      &lt;ion-input formControlName&#x3D;&quot;username&quot; type&#x3D;&quot;text&quot;&gt;&lt;/ion-input&gt;
+    &lt;/ion-item&gt;
 
-      &lt;ion-item&gt;
-          &lt;ion-label position&#x3D;&quot;floating&quot;&gt;username&lt;/ion-label&gt;
-          &lt;ion-input formControlName&#x3D;&quot;username&quot; type&#x3D;&quot;text&quot;&gt;&lt;/ion-input&gt;
-      &lt;/ion-item&gt;
+    &lt;ion-item&gt;
+      &lt;ion-label position&#x3D;&quot;floating&quot;&gt;password&lt;/ion-label&gt;
+      &lt;ion-input formControlName&#x3D;&quot;password&quot; type&#x3D;&quot;password&quot;&gt;&lt;/ion-input&gt;
+    &lt;/ion-item&gt;
 
-      &lt;ion-item&gt;
-          &lt;ion-label position&#x3D;&quot;floating&quot;&gt;password&lt;/ion-label&gt;
-          &lt;ion-input formControlName&#x3D;&quot;password&quot; type&#x3D;&quot;password&quot;&gt;&lt;/ion-input&gt;
-      &lt;/ion-item&gt;
+    &lt;ion-item&gt;
+      &lt;ion-label position&#x3D;&quot;floating&quot;&gt;date&lt;/ion-label&gt;
+      &lt;ion-input formControlName&#x3D;&quot;date_of_birth&quot; type&#x3D;&quot;date&quot;&gt;&lt;/ion-input&gt;
+    &lt;/ion-item&gt;
 
-      &lt;ion-item&gt;
-        &lt;ion-label position&#x3D;&quot;floating&quot;&gt;date&lt;/ion-label&gt;
-        &lt;ion-input formControlName&#x3D;&quot;date_of_birth&quot; type&#x3D;&quot;date&quot;&gt;&lt;/ion-input&gt;
-      &lt;/ion-item&gt;
-      
-       
-    &lt;ion-button expand&#x3D;&quot;block&quot;  strong&#x3D;&quot;true&quot; type&#x3D;&quot;submit&quot;&gt;btn&lt;/ion-button&gt;
-    
-   &lt;/form&gt;
-  &lt;/ion-content&gt;</code></pre>
+    &lt;ion-button expand&#x3D;&quot;block&quot; strong&#x3D;&quot;true&quot; type&#x3D;&quot;submit&quot;&gt;Sign up!&lt;/ion-button&gt;
+  &lt;/form&gt;
+&lt;/ion-content&gt;
+</code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-styleData">
@@ -703,9 +703,9 @@ async loginModal() {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><ion-header translucent>    <ion-toolbar>      <ion-title>sign up</ion-title>      <ion-buttons slot="end">        <ion-button (click)="dismiss()">Close</ion-button>      </ion-buttons>    </ion-toolbar>  </ion-header>  <ion-content>   <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">      <ion-item>          <ion-label position="floating">email</ion-label>          <ion-input formControlName="email" type="text"></ion-input>      </ion-item>      <ion-item>          <ion-label position="floating">username</ion-label>          <ion-input formControlName="username" type="text"></ion-input>      </ion-item>      <ion-item>          <ion-label position="floating">password</ion-label>          <ion-input formControlName="password" type="password"></ion-input>      </ion-item>      <ion-item>        <ion-label position="floating">date</ion-label>        <ion-input formControlName="date_of_birth" type="date"></ion-input>      </ion-item>                 <ion-button expand="block"  strong="true" type="submit">btn</ion-button>       </form>  </ion-content></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'DashboardPage', 'selector': 'app-dashboard'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'PublicPage', 'selector': 'app-public'},{'name': 'RegisterComponent', 'selector': 'app-register'}];
-    var DIRECTIVES = [];
+        var COMPONENT_TEMPLATE = '<div><ion-header translucent>  <ion-toolbar>    <ion-title>sign up</ion-title>    <ion-buttons slot="end">      <ion-button (click)="dismiss()"><ion-icon size="large" name="close"></ion-icon></ion-button>    </ion-buttons>  </ion-toolbar></ion-header><ion-content>  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">    <ion-item>      <ion-label position="floating">email</ion-label>      <ion-input formControlName="email" type="text"></ion-input>    </ion-item>    <ion-item>      <ion-label position="floating">username</ion-label>      <ion-input formControlName="username" type="text"></ion-input>    </ion-item>    <ion-item>      <ion-label position="floating">password</ion-label>      <ion-input formControlName="password" type="password"></ion-input>    </ion-item>    <ion-item>      <ion-label position="floating">date</ion-label>      <ion-input formControlName="date_of_birth" type="date"></ion-input>    </ion-item>    <ion-button expand="block" strong="true" type="submit">Sign up!</ion-button>  </form></ion-content></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'ChatPage', 'selector': 'app-chat'},{'name': 'DashboardPage', 'selector': 'app-dashboard'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MySpotsPage', 'selector': 'app-my-spots'},{'name': 'NewsPage', 'selector': 'app-news'},{'name': 'ProfilePage', 'selector': 'app-profile'},{'name': 'PublicPage', 'selector': 'app-public'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'SettingsPage', 'selector': 'app-settings'},{'name': 'SpotterPage', 'selector': 'app-spotter'}];
+    var DIRECTIVES = [{'name': 'SwipeTabDirective', 'selector': '[appSwipetab]'}];
     var ACTUAL_COMPONENT = {'name': 'RegisterComponent'};
 </script>
 <script src="../js/tree.js"></script>

@@ -5,7 +5,11 @@ import { LocationService } from 'src/app/services/location.service';
 import { IonicSelectableComponent } from 'ionic-selectable';
 import { Subscription } from 'rxjs';
 import { Location } from 'src/app/models';
-
+import { Geolocation } from '@ionic-native/geolocation/ngx';
+import { map } from 'rxjs/operators';
+/**
+ * Component loads spots from the selected place. Default closest place to user location
+ */
 @Component({
   selector: 'app-spotter',
   templateUrl: './spotter.page.html',
@@ -13,15 +17,17 @@ import { Location } from 'src/app/models';
 })
 export class SpotterPage implements OnInit {
 
-  constructor(private spotService: SpotService, private locationService: LocationService) {
+  constructor(private spotService: SpotService, private locationService: LocationService, private geolocation: Geolocation) {
   }
 
   spots: Spot[];
   locations: Location[];
   locationsSubscription: Subscription;
   selected = null;
+  spotsSubscription: Subscription;
   ngOnInit() {
     this.loadData();
+    console.log(this.spots)
   }
 
 
@@ -33,11 +39,20 @@ export class SpotterPage implements OnInit {
     });
   }
 
+    portChange(place: {
+      component: IonicSelectableComponent,
+      value: Location
+    }) {
+      this.spotsSubscription.unsubscribe();
+      this.loadSpots(Number(place.value.lat), Number(place.value.lng));
+
+    }
+
   loadData() {
     this.locationService.getLocations().toPromise().then((locations: Location[]) => {
       this.locations = locations;
       this.locationService.loaded.next(true);
-      this.loadSpots();
+      this.loadSpotsByCurrentLocation();
     });
   }
 
@@ -73,13 +88,26 @@ export class SpotterPage implements OnInit {
       event.component.items = this.filterPorts(ports, text);
       event.component.endSearch();
     });
+   
   }
 
-  loadSpots() {
-    this.spotService.getSpots()
-      .subscribe(
-        (spots: Spot[]) => this.spots = spots
-      );
+  
+
+  loadSpots(lon, lat) {
+    this.spotsSubscription = this.spotService.spotsByLocation(lon, lat).subscribe( 
+      (spots:Spot[]) => { 
+        this.spots = spots;
+       }
+    )
+  }
+
+  loadSpotsByCurrentLocation(){
+    this.geolocation.getCurrentPosition().then((resp) => {
+      this.loadSpots(resp.coords.latitude, resp.coords.longitude);
+
+     }).catch((error) => {
+       console.log('Error getting location', error);
+     });
   }
 
 

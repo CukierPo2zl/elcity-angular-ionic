@@ -15,6 +15,7 @@
               (onSearch)="searchLocations($event)"
               [hasInfiniteScroll]="true"
               searchFailText="Nothing found :("
+              (onChange)="portChange($event)"
               >
               <ng-template ionicSelectableCloseButtonTemplate>
                 <ion-icon name="close" size="large"></ion-icon>
@@ -28,7 +29,7 @@
           </ion-item>
         </ion-col>
         <ion-col size="2">
-          <ion-button fill="clear" class="current-location">
+          <ion-button (click)="loadSpotsByCurrentLocation()"fill="clear" class="current-location">
             <ion-icon ios="md-locate" md="md-locate"></ion-icon>
           </ion-button>
         </ion-col>
@@ -37,7 +38,7 @@
   </div>
   <ion-card *ngFor="let spot of spots" color="justwhite">
     <ion-card-header>
-      <ion-card-subtitle>{{spot.anonymous}}</ion-card-subtitle>
+      <ion-card-subtitle *ngIf="spot.anonymous === false">{{spot.user.username}}</ion-card-subtitle>
     </ion-card-header>
     <ion-card-content>
      {{spot.content}}

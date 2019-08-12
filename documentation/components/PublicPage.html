@@ -330,8 +330,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="23"
-                            class="link-to-prism">src/app/public/public.page.ts:23</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="22"
+                            class="link-to-prism">src/app/public/public.page.ts:22</a></div>
                 </td>
             </tr>
 
@@ -408,7 +408,6 @@ export class PublicPage implements OnInit {
     });
     modal.present();
   }
- 
   async registerModal() {
     const modal &#x3D; await this.modalController.create({
       component: RegisterComponent
@@ -423,7 +422,9 @@ export class PublicPage implements OnInit {
     <div class="tab-pane fade " id="c-templateData">
         <pre class="line-numbers"><code class="language-html">&lt;ion-content color&#x3D;&quot;primary&quot;&gt;
 &lt;div class&#x3D;&quot;hero&quot;&gt;
-  &lt;div&gt;&lt;ion-icon size&#x3D;&quot;large&quot; name&#x3D;&quot;planet&quot;&gt;&lt;/ion-icon&gt;&lt;/div&gt;
+  &lt;div&gt;
+      &lt;img src&#x3D;&quot;../../assets/undraw_task_31wc.svg&quot;&gt;
+  &lt;/div&gt;
   &lt;h1&gt;elcity&lt;/h1&gt;
 &lt;/div&gt;
 &lt;div class&#x3D;&quot;auth-block&quot;&gt;
@@ -454,6 +455,9 @@ export class PublicPage implements OnInit {
     display: flex;
     flex-direction: column;
     justify-content: center;
+}
+ion-icon{
+    font-size: 128px;
 }</code></pre>
     </div>
 
@@ -482,9 +486,9 @@ export class PublicPage implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><ion-content color="primary"><div class="hero">  <div><ion-icon size="large" name="planet"></ion-icon></div>  <h1>elcity</h1></div><div class="auth-block">  <ion-button expand="block" fill="outline" strong="true" (click)="loginModal()">sign in</ion-button>  <ion-button expand="block"  strong="true" (click)="registerModal()">sign up</ion-button>  <hr>  </div></ion-content></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'DashboardPage', 'selector': 'app-dashboard'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'PublicPage', 'selector': 'app-public'},{'name': 'RegisterComponent', 'selector': 'app-register'}];
-    var DIRECTIVES = [];
+        var COMPONENT_TEMPLATE = '<div><ion-content color="primary"><div class="hero">  <div>      <img src="../../assets/undraw_task_31wc.svg">  </div>  <h1>elcity</h1></div><div class="auth-block">  <ion-button expand="block" fill="outline" strong="true" (click)="loginModal()">sign in</ion-button>  <ion-button expand="block"  strong="true" (click)="registerModal()">sign up</ion-button>  <hr>  </div></ion-content></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'ChatPage', 'selector': 'app-chat'},{'name': 'DashboardPage', 'selector': 'app-dashboard'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MySpotsPage', 'selector': 'app-my-spots'},{'name': 'NewsPage', 'selector': 'app-news'},{'name': 'ProfilePage', 'selector': 'app-profile'},{'name': 'PublicPage', 'selector': 'app-public'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'SettingsPage', 'selector': 'app-settings'},{'name': 'SpotterPage', 'selector': 'app-spotter'}];
+    var DIRECTIVES = [{'name': 'SwipeTabDirective', 'selector': '[appSwipetab]'}];
     var ACTUAL_COMPONENT = {'name': 'PublicPage'};
 </script>
 <script src="../js/tree.js"></script>

@@ -66,7 +66,7 @@
                 </p>
                 <p class="comment">
                     <p>Authentication guard implements CanActive.
-Service responsible for determining whether the user is authenticated or not.</p>
+Service is responsible for determining whether the user is authenticated or not.</p>
 
                 </p>
 
@@ -248,7 +248,7 @@ Service responsible for determining whether the user is authenticated or not.</p
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
 
                     </div>
                     <div class="io-description">
@@ -270,7 +270,7 @@ import { AuthService } from &#x27;./auth.service&#x27;;
 import { Router, ActivatedRouteSnapshot, RouterStateSnapshot, CanActivate } from &#x27;@angular/router&#x27;;
 /**
  * Authentication guard implements CanActive.
- * Service responsible for determining whether the user is authenticated or not.
+ * Service is responsible for determining whether the user is authenticated or not.
  */
 @Injectable({
   providedIn: &#x27;root&#x27;
@@ -289,10 +289,7 @@ export class AuthGuardService implements CanActivate {
    * @returns true if user is authenticated or redirects to state
    */
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    if (this.auth.isAuthenticated()) {
-      return true;
-    }
-    this.router.navigate([&#x27;&#x27;], { queryParams: { returnUrl: state.url }});
+   return this.auth.isAuthenticated();
   }
 }
 </code></pre>

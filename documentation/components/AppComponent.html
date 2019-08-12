@@ -267,8 +267,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="30"
-                            class="link-to-prism">src/app/app.component.ts:30</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="32"
+                            class="link-to-prism">src/app/app.component.ts:32</a></div>
                 </td>
             </tr>
 
@@ -313,9 +313,11 @@ export class AppComponent {
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+  
   ) {
     this.initializeApp();
+  
   }
 
  /**
@@ -326,7 +328,7 @@ export class AppComponent {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
 
-     
+     // checks state of user auth
       this.authService.authenticationState.subscribe(state &#x3D;&gt; {
         console.log(&#x27;auth: &#x27; + state);
         if (state) {
@@ -375,8 +377,8 @@ export class AppComponent {
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
         var COMPONENT_TEMPLATE = '<div><ion-app>  <ion-router-outlet></ion-router-outlet></ion-app></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'DashboardPage', 'selector': 'app-dashboard'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'PublicPage', 'selector': 'app-public'},{'name': 'RegisterComponent', 'selector': 'app-register'}];
-    var DIRECTIVES = [];
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'ChatPage', 'selector': 'app-chat'},{'name': 'DashboardPage', 'selector': 'app-dashboard'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MySpotsPage', 'selector': 'app-my-spots'},{'name': 'NewsPage', 'selector': 'app-news'},{'name': 'ProfilePage', 'selector': 'app-profile'},{'name': 'PublicPage', 'selector': 'app-public'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'SettingsPage', 'selector': 'app-settings'},{'name': 'SpotterPage', 'selector': 'app-spotter'}];
+    var DIRECTIVES = [{'name': 'SwipeTabDirective', 'selector': '[appSwipetab]'}];
     var ACTUAL_COMPONENT = {'name': 'AppComponent'};
 </script>
 <script src="../js/tree.js"></script>

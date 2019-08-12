@@ -8,6 +8,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { DashboardPage } from './dashboard.page';
 import { SwipeTabDirective } from './directives/swipe-tab.directive';
 
+
 /**
  * Routes for tab bar
  */

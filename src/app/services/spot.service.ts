@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { catchError, map } from 'rxjs/operators';
 import { AuthService } from './auth.service';
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
 import { Spot } from '../models/spot';
 
 @Injectable({
@@ -11,10 +11,10 @@ import { Spot } from '../models/spot';
 export class SpotService {
 
   constructor(private http: HttpClient, private auth: AuthService) { }
-  AUTH_SERVER_ADDRESS =  'http://192.168.1.102:8000';
+  AUTH_SERVER_ADDRESS =  'http://192.168.1.103:8000';
 
   getSpots() {
-    return this.http.get(this.AUTH_SERVER_ADDRESS + '/api/spots/').pipe(
+    return this.http.get(this.AUTH_SERVER_ADDRESS + '/api/spotter/').pipe(
       catchError(e => {
         const status = e.status;
         if (status === 401) {
@@ -26,12 +26,20 @@ export class SpotService {
   }
   postSpot(spot: Spot): Observable<Spot> {
     return this.http
-        .post<Spot>(this.AUTH_SERVER_ADDRESS + `/api/spots/`, spot);
+        .post<Spot>(this.AUTH_SERVER_ADDRESS + `/api/spotter/`, spot);
 
 }
 
-  getSpotterData() {
-    return this.http.get('http://192.168.1.104:8000/api/spots/spotter');
-  }
 
+spotsByLocation(lon, lat){
+  return this.http.post<any>(this.AUTH_SERVER_ADDRESS + '/api/spotter/spots', { lon, lat },
+    {responseType: 'json'}).pipe(
+      map((spots: Spot[]) => {
+          return spots;
+      }),
+      catchError(error =>{
+        return throwError('Something webt wrong' + JSON.stringify(error));
+      })
+    )
+  };
 }
