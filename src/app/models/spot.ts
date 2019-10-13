@@ -8,6 +8,9 @@ export class Spot {
     public content: string,
     public anonymous: boolean,
     public user: User,
+    public stars: User[],
+    public starsCount: number,
+    public likedByCurrentUser: boolean,
     ){}
 }
 

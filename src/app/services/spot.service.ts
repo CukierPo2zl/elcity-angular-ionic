@@ -4,6 +4,7 @@ import { catchError, map } from 'rxjs/operators';
 import { AuthService } from './auth.service';
 import { Observable, throwError } from 'rxjs';
 import { Spot } from '../models/spot';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -11,10 +12,10 @@ import { Spot } from '../models/spot';
 export class SpotService {
 
   constructor(private http: HttpClient, private auth: AuthService) { }
-  AUTH_SERVER_ADDRESS =  'http://192.168.1.103:8000';
+ // AUTH_SERVER_ADDRESS =  'http://192.168.1.103:8000';
 
   getSpots() {
-    return this.http.get(this.AUTH_SERVER_ADDRESS + '/api/spotter/').pipe(
+    return this.http.get(environment.url + '/api/spotter/').pipe(
       catchError(e => {
         const status = e.status;
         if (status === 401) {
@@ -26,13 +27,13 @@ export class SpotService {
   }
   postSpot(spot: Spot): Observable<Spot> {
     return this.http
-        .post<Spot>(this.AUTH_SERVER_ADDRESS + `/api/spotter/`, spot);
+        .post<Spot>(environment.url + `/api/spotter/`, spot);
 
 }
 
 
 spotsByLocation(lon, lat){
-  return this.http.post<any>(this.AUTH_SERVER_ADDRESS + '/api/spotter/spots', { lon, lat },
+  return this.http.post<any>(environment.url + '/api/spotter/spots', { lon, lat },
     {responseType: 'json'}).pipe(
       map((spots: Spot[]) => {
           return spots;

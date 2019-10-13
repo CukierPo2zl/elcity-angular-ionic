@@ -7,6 +7,7 @@ import { Storage } from '@ionic/storage';
 import { User, AuthResponse } from '../models';
 import { Platform, AlertController } from '@ionic/angular';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import { environment } from 'src/environments/environment';
 
 const TOKEN_KEY = 'currentUser';
 const helper = new JwtHelperService();
@@ -22,7 +23,7 @@ export class AuthService {
   /**
    * backend server address
    */
-  AUTH_SERVER_ADDRESS =  'http://192.168.1.103:8000';
+  // AUTH_SERVER_ADDRESS =  'http://192.168.1.103:8000';
 
   /**
    * State represents user auth state
@@ -52,7 +53,7 @@ export class AuthService {
    * @param user user model
    */
   register(user: User): Observable<AuthResponse> {
-    return this.httpClient.post<AuthResponse>(`${this.AUTH_SERVER_ADDRESS}/api/users/`, user).pipe(
+    return this.httpClient.post<AuthResponse>(`${environment.url}/api/users/`, user).pipe(
       catchError(e => {
         this.showErrorAlert(e.error.msg);
         throw new Error(e);
@@ -69,7 +70,7 @@ export class AuthService {
    * @returns user data with JWT token
    */
   login(email: string, password: string) {
-    return this.httpClient.post<any>(this.AUTH_SERVER_ADDRESS + `/api/users/auth/login/`, { email, password })
+    return this.httpClient.post<any>(environment.url + `/api/users/auth/login/`, { email, password })
         .pipe(map(user => {
             // login successful if there's a jwt token in the response
             if (user && user.token) {

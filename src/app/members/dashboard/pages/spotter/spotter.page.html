@@ -4,44 +4,77 @@
       <ion-row>
         <ion-col size="10">
           <ion-item>
-            <ion-label color="primary"><ion-icon name="pin"></ion-icon>location</ion-label>
-            <ionic-selectable 
-              [(ngModel)]="selected" 
-              [items]="locations"
-              [hasVirtualScroll]="true"
-              itemValueField="name"
-              itemTextField="name"
-              [canSearch]="true"
-              (onSearch)="searchLocations($event)"
-              [hasInfiniteScroll]="true"
-              searchFailText="Nothing found :("
-              (onChange)="portChange($event)"
-              >
+            <ion-label color="primary">
+              <ion-icon name="pin"></ion-icon>location
+            </ion-label>
+            <ionic-selectable [(ngModel)]="selected" [items]="locations" [hasVirtualScroll]="true" itemValueField="name"
+              itemTextField="name" [canSearch]="true" (onSearch)="searchLocations($event)" [hasInfiniteScroll]="true"
+              searchFailText="Nothing found :(" (onChange)="portChange($event)">
               <ng-template ionicSelectableCloseButtonTemplate>
                 <ion-icon name="close" size="large"></ion-icon>
               </ng-template>
 
               <ng-template ionicSelectableItemTemplate let-item="item">
-                  {{item.name}}, {{ item.country }}
-                </ng-template>
+                {{item.name}}, {{ item.country }}
+              </ng-template>
 
             </ionic-selectable>
           </ion-item>
         </ion-col>
         <ion-col size="2">
-          <ion-button (click)="loadSpotsByCurrentLocation()"fill="clear" class="current-location">
+          <ion-button (click)="loadSpotsByCurrentLocation()" fill="clear" class="current-location">
             <ion-icon ios="md-locate" md="md-locate"></ion-icon>
           </ion-button>
         </ion-col>
       </ion-row>
     </ion-grid>
   </div>
+
   <ion-card *ngFor="let spot of spots" color="justwhite">
-    <ion-card-header>
-      <ion-card-subtitle *ngIf="spot.anonymous === false">{{spot.user.username}}</ion-card-subtitle>
-    </ion-card-header>
+
+    <div class="card-header">
+
+      <div *ngIf="spot.anonymous === false">
+        <ion-chip>
+          <ion-avatar>
+            <img src="assets/avatar.svg">
+          </ion-avatar>
+          <ion-label>{{spot.user.username}}</ion-label>
+        </ion-chip>
+      </div>
+
+      <ion-chip>
+        <ion-icon name="star"></ion-icon>
+        <ion-label>{{spot.starsCount}}</ion-label>
+      </ion-chip>
+
+    </div>
+
     <ion-card-content>
-     {{spot.content}}
+      {{spot.content}}
     </ion-card-content>
+
+    <ion-footer>
+      <ion-toolbar>
+
+        <ion-buttons slot="secondary">
+          <ion-button color="primary" clear text-center *ngIf="spot.likedByCurrentUser; else not">
+            <ion-icon name="star"></ion-icon>
+          </ion-button>
+          <ng-template #not>
+            <ion-button color="primary" clear text-center>
+              <ion-icon name="star-outline"></ion-icon>
+            </ion-button>
+          </ng-template>
+        </ion-buttons>
+
+        <ion-button size="small" fill="outline" strong="true">Obserwuj</ion-button>
+
+        <ion-buttons slot="primary">
+          <ion-icon name="more"></ion-icon>
+        </ion-buttons>
+
+      </ion-toolbar>
+    </ion-footer>
   </ion-card>
 </ion-content>
